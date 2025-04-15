@@ -1,13 +1,12 @@
 from collections import deque
 
 def solution(n, m, x, y, r, c, k):
-    directions_ch = ['d', 'l', 'r', 'u']
-    directions = [(1,0), (0,-1), (0, 1), (-1, 0)]
-    found = False
     def is_possible(cur_x, cur_y, count):
         distance = abs(r-cur_x) + abs(c-cur_y)
         return (k-count) >= distance  and (k - count - distance) % 2 == 0
-
+    directions_ch = ['d', 'l', 'r', 'u']
+    directions = [(1,0), (0,-1), (0, 1), (-1, 0)]
+    found = False
     queue = deque()
     queue.append((x,y,0,''))
     while queue:
@@ -19,6 +18,8 @@ def solution(n, m, x, y, r, c, k):
         for ch, (dx, dy) in zip(directions_ch, directions):
             nx, ny = x + dx, y + dy
             if 1 <= nx <= n and 1 <= ny <= m:
-                queue.append((nx, ny, cnt+1, letter+ch))
+                if is_possible(nx, ny, cnt+1):
+                    queue.append((nx, ny, cnt+1, letter+ch))
+                    break
     return 'impossible'
 print(solution(3,4,2,3,3,1,5))
