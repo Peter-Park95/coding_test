@@ -22,4 +22,4 @@ def solution(n, m, x, y, r, c, k):
                     queue.append((nx, ny, cnt+1, letter+ch))
                     break
     return 'impossible'
-print(solution(3,4,2,3,3,1,5))
+
