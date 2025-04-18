@@ -1,4 +1,3 @@
-from itertools import combinations
-c = ((1, 2), (3, 4),(5,6))
-for idx, zc in enumerate(combinations(c,2)):
-    print(idx, zc)
+N = int(input())
+ability = [list(map(int, input().split())) for _ in range(N)]
+print(ability[0][0])
