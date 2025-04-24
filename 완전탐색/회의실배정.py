@@ -12,4 +12,3 @@ while meetings:
     if start_time >= current_time:
         count += 1
         current_time = end_time
-print(count)
