@@ -8,4 +8,4 @@ else:
     score[2] = step[1] + step[2]
     for i in range(3, S+1):
         score[i] = max(score[i-3]+ step[i-1]+step[i], score[i-2]+ step[i])
-    print(score[S])
+
